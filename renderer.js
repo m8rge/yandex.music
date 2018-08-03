@@ -29,7 +29,11 @@ const init = () => {
     }
 
     ret = globalShortcut.register('MediaPreviousTrack', () => {
-        externalAPI.prev();
+        if (externalAPI.getProgress().position >= 5) {
+            externalAPI.setPosition(0);
+        } else {
+            externalAPI.prev();
+        }
     });
     if (!ret) {
         dialog.showErrorBox('Cant bind global shortcut', 'Cant bind MediaPreviousTrack. Closing tab. \nPossible second opened tab?');

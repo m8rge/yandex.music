@@ -1,9 +1,9 @@
-# yandex.music.app
-Yandex Music web app. Electron powered.
+# Yandex music desktop app
+Yandex Music web app. Electron powered. Supports MacOs, Windows, Linux.
 
 Support media keys (play/pause/prev/next)
 
-# Requirements
+# Build Requirements
 
 * https://github.com/jiahaog/nativefier
 

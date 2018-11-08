@@ -29,7 +29,11 @@
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "yarn"
+        "packageManager": "yarn",
+        "icon": "./icon",
+        "ignore": [
+          "\\.idea"
+        ]
       },
       "electronWinstallerConfig": {
         "name": "yandex_music"

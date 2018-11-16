@@ -41,8 +41,8 @@
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "m8rge",
+        "name": "yandex.music"
       },
       "windowsStoreConfig": {
         "packageName": "",

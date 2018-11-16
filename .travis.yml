@@ -8,7 +8,7 @@ matrix:
         apt:
           packages:
             - fakeroot
-            - rpmbuild
+            - rpm
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.12.3
   - export PATH="$HOME/.yarn/bin:$PATH"

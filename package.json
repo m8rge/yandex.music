@@ -52,7 +52,8 @@
   },
   "dependencies": {
     "electron-compile": "^6.4.3",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-window-state": "^5.0.3"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

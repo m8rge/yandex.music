@@ -9,12 +9,24 @@ let mainWindow = null
 const isOSX = () => { return process.platform === 'darwin' }
 
 const createWindow = () => {
+  const windowStateKeeper = require('electron-window-state');
+  let mainWindowState = windowStateKeeper({
+    defaultWidth: 1024,
+    defaultHeight: 768
+  });
+
   mainWindow = new BrowserWindow({
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
     webPreferences: {
       preload: path.join(__dirname, 'renderer.js'),
       nodeIntegration: false
     }
   })
+
+  mainWindowState.manage(mainWindow);
 
   mainWindow.on('close', (event, a) => {
     if (isOSX()) {
@@ -65,7 +77,6 @@ app.on('activate', (event, hasVisibleWindows) => {
 
 app.on('before-quit', () => {
   if (isOSX()) {
-    // todo: deal with exception on exit
     app.exit(0);
   }
 });

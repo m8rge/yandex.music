@@ -1,10 +1,13 @@
-import path from 'path';
-import displayNotification from './components/notification';
+import path from 'path'
+import displayNotification from './components/notification'
 import registerMediaHotKeys from './components/hotkey'
+import createMenu from './components/menu'
 
-const { app, BrowserWindow, Notification, ipcMain } = require('electron')
+const { app, BrowserWindow, Notification, ipcMain, dialog } = require('electron')
 
 let mainWindow = null
+let shouldQuit = false
+const homeUrl = 'https://music.yandex.ru/'
 
 const isOSX = () => { return process.platform === 'darwin' }
 
@@ -28,8 +31,10 @@ const createWindow = () => {
 
   mainWindowState.manage(mainWindow);
 
-  mainWindow.on('close', (event, a) => {
-    if (isOSX()) {
+  createMenu(mainWindow, homeUrl);
+
+  mainWindow.on('close', (event) => {
+    if (isOSX() && !shouldQuit) {
       event.preventDefault();
       mainWindow.hide();
     } else {
@@ -37,7 +42,7 @@ const createWindow = () => {
     }
   })
 
-  mainWindow.loadURL('https://music.yandex.ru/')
+  mainWindow.loadURL(homeUrl)
 
   registerMediaHotKeys(mainWindow);
 
@@ -76,7 +81,5 @@ app.on('activate', (event, hasVisibleWindows) => {
 })
 
 app.on('before-quit', () => {
-  if (isOSX()) {
-    app.exit(0);
-  }
+  shouldQuit = true
 });

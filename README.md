@@ -1,5 +1,5 @@
 # Yandex music desktop app
-Yandex Music web app. Electron powered. Supports macOs, Windows, Linux.
+Yandex Music web app. Electron powered. Supports macOS, Windows, Linux.
 
 Support media keys (play/pause/prev/next)
 

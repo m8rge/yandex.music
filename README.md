@@ -25,4 +25,4 @@ If you're having `"Cant bind global shortcut"` error on macOS ≥ 10.14 Mojave, 
 
 ## Roadmap
 
-[ ] To do a progress bar for a TouchBar.
+- [] To do a progress bar for a TouchBar.

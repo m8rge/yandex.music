@@ -1,44 +1,35 @@
-'use strict';
-const {globalShortcut, dialog} = require('electron').remote;
-const currentWindow = require('electron').remote.getCurrentWindow();
-const currentWebContents = currentWindow.webContents;
+const { app, globalShortcut,systemPreferences } = require('electron').remote
 
-const init = () => {
-    if (window.location.host !== 'music.yandex.ru') {
-        return;
-    }
+app.whenReady().then(() => {
+const isTrusted = systemPreferences.isTrustedAccessibilityClient(true);
 
-    var ret;
-
-    ret = globalShortcut.register('MediaPlayPause', () => {
+  if (!globalShortcut.isRegistered('MediaPlayPause')) {
+    globalShortcut.register('MediaPlayPause', () => {
+      if (!externalAPI.isPlaying()) {
+        externalAPI.play();
+      } else {
         externalAPI.togglePause();
-    });
-    if (!ret) {
-        dialog.showErrorBox('Cant bind global shortcut', 'Cant bind MediaPlayPause. Closing tab.\nPossible second opened tab?');
-        currentWindow.close();
-        return;
-    }
+      }
+    })
+  }
 
-    ret = globalShortcut.register('MediaNextTrack', () => {
-        externalAPI.next();
-    });
-    if (!ret) {
-        dialog.showErrorBox('Cant bind global shortcut', 'Cant bind MediaNextTrack. Closing tab. \nPossible second opened tab?');
-        currentWindow.close();
-        return;
-    }
+  if (!globalShortcut.isRegistered('MediaNextTrack')) {
+    globalShortcut.register('MediaNextTrack', () => {
+      externalAPI.next();
+    })
+  }
 
-    ret = globalShortcut.register('MediaPreviousTrack', () => {
-        if (externalAPI.getProgress().position >= 5) {
-            externalAPI.setPosition(0);
-        } else {
-            externalAPI.prev();
-        }
-    });
-    if (!ret) {
-        dialog.showErrorBox('Cant bind global shortcut', 'Cant bind MediaPreviousTrack. Closing tab. \nPossible second opened tab?');
-        currentWindow.close();
-    }
-};
+  if (!globalShortcut.isRegistered('MediaPreviousTrack')) {
+    globalShortcut.register('MediaPreviousTrack', () => {
+      if (externalAPI.getProgress().position >= 5) {
+        externalAPI.setPosition(0);
+      } else {
+        externalAPI.prev();
+      }
+    })
+  }
+})
 
-currentWebContents.on('did-finish-load', init);
+app.on('will-quit', () => {
+  globalShortcut.unregisterAll()
+})

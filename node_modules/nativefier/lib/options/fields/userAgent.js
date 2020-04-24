@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const inferUserAgent_1 = require("../../infer/inferUserAgent");
+async function userAgent(options) {
+    if (options.nativefier.userAgent) {
+        return null;
+    }
+    return inferUserAgent_1.inferUserAgent(options.packager.electronVersion, options.packager.platform);
+}
+exports.userAgent = userAgent;
+//# sourceMappingURL=userAgent.js.map

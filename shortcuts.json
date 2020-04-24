@@ -1,0 +1,65 @@
+[
+  {
+    "key": "MediaPlayPause",
+    "inputEvents": [
+      {
+        "type": "keyDown",
+        "keyCode": "Space"
+      }
+    ]
+  },
+  {
+    "key": "MediaPreviousTrack",
+    "inputEvents": [
+      {
+        "type": "keyDown",
+        "keyCode": "Shift"
+      },
+      {
+        "type": "keyDown",
+        "keyCode": "Left",
+        "modifiers": [
+          "shift"
+        ]
+      },
+      {
+        "type": "keyUp",
+        "keyCode": "Left",
+        "modifiers": [
+          "shift"
+        ]
+      },
+      {
+        "type": "keyUp",
+        "keyCode": "Shift"
+      }
+    ]
+  },
+  {
+    "key": "MediaNextTrack",
+    "inputEvents": [
+      {
+        "type": "keyDown",
+        "keyCode": "Shift"
+      },
+      {
+        "type": "keyDown",
+        "keyCode": "Right",
+        "modifiers": [
+          "shift"
+        ]
+      },
+      {
+        "type": "keyUp",
+        "keyCode": "Right",
+        "modifiers": [
+          "shift"
+        ]
+      },
+      {
+        "type": "keyUp",
+        "keyCode": "Shift"
+      }
+    ]
+  }
+]

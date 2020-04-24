@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const log = require("loglevel");
+const fields_1 = require("./fields/fields");
+/**
+ * Takes the options object and infers new values needing async work
+ */
+async function asyncConfig(options) {
+    log.debug('\nPerforming async options post-processing.');
+    await fields_1.processOptions(options);
+}
+exports.asyncConfig = asyncConfig;
+//# sourceMappingURL=asyncConfig.js.map

@@ -7,6 +7,12 @@ Support media keys (play/pause/prev/next)
 
 * https://github.com/jiahaog/nativefier
 
+# Install dependencies
+
+```bash
+$ yarn
+```
+
 # Build
 
 ```bash

@@ -1,0 +1,103 @@
+{
+  "name": "nativefier",
+  "version": "8.0.7",
+  "description": "Wrap web apps natively",
+  "license": "MIT",
+  "author": "Goh Jia Hao",
+  "engines": {
+    "node": ">= 8.10.0",
+    "npm": ">= 5.6.0"
+  },
+  "keywords": [
+    "desktop",
+    "electron",
+    "app",
+    "native",
+    "wrapper"
+  ],
+  "main": "lib/main.js",
+  "bin": {
+    "nativefier": "lib/cli.js"
+  },
+  "homepage": "https://github.com/jiahaog/nativefier",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiahaog/nativefier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jiahaog/nativefier/issues"
+  },
+  "scripts": {
+    "build-app": "cd app && webpack",
+    "build-app-static": "ncp app/src/static/ app/lib/static/ && ncp app/dist/preload.js app/lib/preload.js && ncp app/dist/preload.js.map app/lib/preload.js.map",
+    "build": "npm run clean && tsc --build . app && npm run build-app && npm run build-app-static",
+    "build:watch": "tsc --build . app --watch",
+    "dev-up": "npm install && cd ./app && npm install && cd ..",
+    "dev-up-win": "npm install & cd app & npm install & cd ..",
+    "changelog": "./docs/generate-changelog",
+    "ci": "npm run lint && npm test",
+    "clean": "rimraf lib/ app/lib/ app/dist/",
+    "clean:full": "rimraf lib/ app/lib/ app/dist/ node_modules/ app/node_modules/",
+    "lint:fix": "eslint . --fix",
+    "lint:format": "prettier --write 'src/**/*.js' 'app/src/**/*.js'",
+    "lint": "eslint . --ext .ts",
+    "list-outdated-deps": "npm out; cd app && npm out; true",
+    "test:integration": "jest --testRegex '.*integration-test.js'",
+    "test:manual": "npm run build && ./docs/manual-test",
+    "test:unit": "jest",
+    "test:watch": "jest --watch",
+    "test:withlog": "LOGLEVEL=trace npm run test",
+    "test": "jest --testRegex '[-.]test\\.js$'"
+  },
+  "dependencies": {
+    "@types/cheerio": "0.x",
+    "@types/electron-packager": "14.x",
+    "@types/lodash": "4.x",
+    "@types/ncp": "2.x",
+    "@types/node": "8.x",
+    "@types/page-icon": "0.x",
+    "@types/shelljs": "0.x",
+    "@types/tmp": "0.x",
+    "axios": "0.x",
+    "cheerio": "^1.0.0-rc.3",
+    "commander": "4.x",
+    "electron-packager": "14.x",
+    "gitcloud": "0.x",
+    "hasbin": "1.x",
+    "lodash": "4.x",
+    "loglevel": "1.x",
+    "ncp": "2.x",
+    "page-icon": "0.x",
+    "sanitize-filename": "1.x",
+    "shelljs": "0.x",
+    "source-map-support": "0.x",
+    "tmp": "0.x"
+  },
+  "devDependencies": {
+    "@types/jest": "25.x",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "eslint": "6.x",
+    "eslint-config-prettier": "6.x",
+    "eslint-plugin-prettier": "3.x",
+    "jest": "25.x",
+    "prettier": "2.x",
+    "rimraf": "3.x",
+    "ts-loader": "6.x",
+    "typescript": "3.x",
+    "webpack": "4.x",
+    "webpack-cli": "3.x"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "setupFiles": [
+      "./lib/jestSetupFiles"
+    ],
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/app/src.*",
+      "<rootDir>/src.*"
+    ]
+  }
+}

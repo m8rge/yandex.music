@@ -1,7 +1,8 @@
-const { app, globalShortcut,systemPreferences } = require('electron').remote
+const { app, globalShortcut, systemPreferences, Notification } = require('electron').remote
+//const notifier = require('node-notifier')
 
 app.whenReady().then(() => {
-const isTrusted = systemPreferences.isTrustedAccessibilityClient(true);
+  const isTrusted = systemPreferences.isTrustedAccessibilityClient(true);
 
   if (!globalShortcut.isRegistered('MediaPlayPause')) {
     globalShortcut.register('MediaPlayPause', () => {
@@ -28,6 +29,20 @@ const isTrusted = systemPreferences.isTrustedAccessibilityClient(true);
       }
     })
   }
+
+
+  	externalAPI.on(externalAPI.EVENT_TRACK, () => {
+  		const trackInfo = externalAPI.getCurrentTrack();
+  		const artists = trackInfo.artists.map(function(obj) { return obj.title; }).join(', ');
+
+  		new Notification('Яндекс.Музыка', {
+  			silent: true,
+  			body: `Album: ${trackInfo.album.title} (${trackInfo.album.year})\r\nTrack: ${artists} - ${trackInfo.title}`
+  		});
+
+  		//app.dock.setBadge('');
+  	})
+
 })
 
 app.on('will-quit', () => {

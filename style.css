@@ -1,14 +1,22 @@
+header {
+    -webkit-app-region: drag;
+}
+
+header button {
+    -webkit-app-region: no-drag;
+}
+
 .head {
-  -webkit-app-region: drag;
-  padding-top: 25px;
+    -webkit-app-region: drag;
+    padding-top: 25px;
 }
 
 .head .d-logo {
-	margin-left: 15px !important;
+    margin-left: 15px !important;
 }
 
 .head a,
 .head input,
 .head button {
-  -webkit-app-region: no-drag;
+    -webkit-app-region: no-drag;
 }

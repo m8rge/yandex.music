@@ -10,9 +10,11 @@
   --height 800px \
   --single-instance \
   --fast-quit \
+  --portable \
   --title-bar-style 'hiddenInset' \
-  --internal-urls "(?:music|passport)\.yandex\.ru/.*"
+  --internal-urls "(?:music|passport)\.yandex\.ru/.*" \
+  --darwin-dark-mode-support \
+  --disable-context-menu \
+  --disable-dev-tools \
 
   # --global-shortcuts ./shortcuts.json \
-  # --disable-context-menu \
-  # --disable-dev-tools \

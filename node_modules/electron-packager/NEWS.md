@@ -2,7 +2,72 @@
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/electron/electron-packager/compare/v14.2.1...master
+[Unreleased]: https://github.com/electron/electron-packager/compare/v15.4.0...main
+
+## [15.4.0] - 2021-09-10
+
+[15.4.0]: https://github.com/electron/electron-packager/compare/v15.3.0...v15.4.0
+
+### Added
+
+* `extendHelperInfo` option to allow extending helper app `Info.plist` files (#1233)
+* Automatically insert `ElectronAsarIntegrity` into `Info.plist` files (#1279)
+
+### Fixed
+
+* Compatibility with `electron-notarize@^1.1.0` (#1278)
+
+## [15.3.0] - 2021-07-17
+
+[15.3.0]: https://github.com/electron/electron-packager/compare/v15.2.0...v15.3.0
+
+### Added
+
+* Bundled app validation to ensure that both `package.json` and the main entry point exist (#1257)
+* Support for customizing Windows targets on darwin/arm64 (#1260)
+* Support for customizing Windows targets on WSL without Wine installed (#1260)
+
+## [15.2.0] - 2020-12-04
+
+[15.2.0]: https://github.com/electron/electron-packager/compare/v15.1.0...v15.2.0
+
+### Added
+
+* Upgrade `electron-osx-sign` to 0.5.0 which adds a new option, `entitlementsForFile` (#1189)
+
+### Fixed
+
+* Add package manager lockfiles to default ignore list (#1182)
+* Allow checking official builds against prerelease versions (#1191)
+
+## [15.1.0] - 2020-08-21
+
+[15.1.0]: https://github.com/electron/electron-packager/compare/v15.0.0...v15.1.0
+
+### Added
+
+* add darwin/arm64 and mas/arm64 as official platform/arch combinations (#1168)
+
+### Fixed
+
+* TypeScript: ensure `OsxNotarizeOptions` definition contains credentials (#1167)
+
+## [15.0.0] - 2020-06-27
+
+[15.0.0]: https://github.com/electron/electron-packager/compare/v14.2.1...v15.0.0
+
+### Added
+
+* mac: app API key notarization (#1127)
+* TypeScript definition (#1131)
+
+### Changed
+
+* Replace `cross-zip` with `extract-zip` (#1139)
+
+### Removed
+
+* Node &lt; 10 support (#1122)
 
 ## [14.2.1] - 2020-02-07
 
@@ -745,7 +810,7 @@
 ### Changed
 
 * [win32] `rcedit` dependency updated to 0.4.x. **A new DLL is required to run the new version
-  of rcedit, please see [the documentation](https://github.com/electron/electron-packager/blob/master/README.md#building-windows-apps-from-non-windows-platforms)
+  of rcedit, please see [the documentation](https://github.com/electron/electron-packager/blob/main/README.md#building-windows-apps-from-non-windows-platforms)
   for details**
 * API documentation moved from readme.md to docs/api.md (#296)
 

@@ -6,6 +6,6 @@
     "build": "./build"
   },
   "dependencies": {
-    "nativefier": "^45.0.4"
+    "nativefier": "^9.2.0"
   }
 }

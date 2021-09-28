@@ -4,17 +4,19 @@
   --single-instance \
   --name Yandex.Music \
   --icon ./og-image.png \
+  --electron-version 15.0.0 \
   --inject ./renderer.js \
   --inject ./style.css \
   --width 1280px \
   --height 800px \
-  --single-instance \
   --fast-quit \
-  --portable \
   --title-bar-style 'hiddenInset' \
-  --internal-urls "(?:music|passport)\.yandex\.ru/.*" \
   --darwin-dark-mode-support \
-  --disable-context-menu \
-  --disable-dev-tools \
+  --internal-urls "(?:music|passport)\.yandex\.ru/.*"
 
+#  --version 0.1.1
+  #  --portable \
+
+#  --disable-context-menu \
+#  --disable-dev-tools
   # --global-shortcuts ./shortcuts.json \

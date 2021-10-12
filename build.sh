@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-nativefier https://music.yandex.ru --single-instance -n Yandex.Music -i ./og-image.png --inject ./renderer.js --internal-urls "(?:music|passport)\.yandex\.ru/.*"
+nativefier --verbose --global-shortcuts shortcuts.json https://music.yandex.ru -n Yandex.Music -i ./og-image.png --internal-urls "(?:music|passport)\.yandex\.ru/.*"

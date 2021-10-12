@@ -5,7 +5,7 @@ Support media keys (play/pause/prev/next)
 
 # Build Requirements
 
-* https://github.com/jiahaog/nativefier
+* https://github.com/alexandrius/yandex.music
 
 # Build
 

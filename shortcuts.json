@@ -1,0 +1,29 @@
+[
+  {
+    "key": "MediaPlayPause",
+    "inputEvents": [
+      {
+        "type": "char",
+        "keyCode": "p"
+      }
+    ]
+  },
+  {
+    "key": "MediaPreviousTrack",
+    "inputEvents": [
+      {
+        "type": "char",
+        "keyCode": "k"
+      }
+    ]
+  },
+  {
+    "key": "MediaNextTrack",
+    "inputEvents": [
+      {
+        "type": "char",
+        "keyCode": "l"
+      }
+    ]
+  }
+]

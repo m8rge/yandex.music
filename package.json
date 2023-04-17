@@ -1,11 +1,11 @@
 {
   "name": "yandex-music",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "build": "./build"
   },
   "dependencies": {
-    "nativefier": "^9.2.0"
+    "nativefier": "^50.1.1"
   }
 }
